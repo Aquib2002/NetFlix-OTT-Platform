@@ -1,0 +1,33 @@
+﻿@model NetFlix.Models.MembersShipType
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MembersShipType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeletePost","MemberShipType",FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(c => c.Id);
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+
+            @Html.ActionLink("Back to List", "List")
+        </div>
+    }
+</div>

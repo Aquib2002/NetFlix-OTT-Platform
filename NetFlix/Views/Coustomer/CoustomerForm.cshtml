@@ -1,0 +1,46 @@
+﻿@model NetFlix.Models.Coustomer
+
+@using (Html.BeginForm("CreateEdit", "Coustomer", FormMethod.Post))
+{
+    <div class="bg-light">
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.Name)
+            <div>
+                @Html.TextBoxFor(c => c.Name, new { @class = "form-Control" })
+            </div>
+            @Html.ValidationMessageFor(c =>c.Name)
+        </div>
+        
+
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.Address)
+            <div>
+                @Html.TextBoxFor(c => c.Address, new { @class = "form-Control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.membersShipType)
+            <div class="form-group">
+                @Html.DropDownListFor(c => c.membersShipTypeId,
+                                      new SelectList(ViewBag.Membershiptypeid, "Id", "Duration"),
+                                      "===Select===",
+                                      new { @class = "form-Control" }
+                                      )
+            </div>
+        </div>
+      
+
+        <div>
+            @Html.HiddenFor(c => c.Id)
+            @Html.AntiForgeryToken()
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-info" />
+
+    </div>
+}
+
+

@@ -1,0 +1,62 @@
+﻿@model IEnumerable< NetFlix.Models.Coustomer>
+
+@Html.ActionLink("Create New","Create","Coustomer",null,new {@class = "btn btn-primary" })
+<br />
+<br />
+
+<table class="table-bordered table-hover table"> 
+
+    <thead class="bg-info">
+      
+        <tr>
+
+            <th>
+                Name
+            </th>
+
+            <th>
+                Address
+            </th>
+
+            <th>
+                MembershipType
+            </th>
+            
+            <th>
+                Actions
+            </th>
+
+        </tr>
+
+    </thead>
+
+    @foreach(var temp in Model)
+     {
+        <tbody>
+
+            <tr>
+                <td>
+                    @temp.Name
+                </td>
+
+                <td>
+                    @temp.Address
+                </td>
+
+                <td>
+                    @temp.membersShipType.Duration
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Coustomer", new { temp.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Details", "Details", "Coustomer", new { temp.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Delete", "Coustomer", new { temp.Id }, new { @class = "btn btn-danger" })
+                </td>
+
+            </tr>
+
+        </tbody>
+     }
+
+</table>
+

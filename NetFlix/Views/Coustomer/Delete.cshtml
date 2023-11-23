@@ -1,0 +1,16 @@
+﻿@model NetFlix.Models.Coustomer
+
+@using (Html.BeginForm("DeletePost", "Coustomer", FormMethod.Post))
+ {
+
+    <h4>
+        Are You Sure Do You Want TO Delete @Model.Name Data!!!!!!
+    </h4>
+
+    @Html.HiddenFor(c => c.Id);
+
+    <input type="submit" value="Delete" class="btn btn-danger"/>
+
+ }
+
+
